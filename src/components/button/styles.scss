@@ -1,0 +1,87 @@
+@import 'global-styles/colors.scss';
+@import 'global-styles/animations.scss';
+
+.app-button {
+  &::before {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAGCAYAAAAL+1RLAAAAF0lEQVQIW2NkwAIYgWKS6OIgQQxAoUoAE4AAUnD/0ugAAAAASUVORK5CYII=) repeat;
+    content: '';
+    opacity: 0;
+    border-radius: 100px
+  }
+
+  &:hover {
+    animation: glitch 750ms;
+    background-color: $secondary-green;
+
+    &::before {
+      animation: scan 2s infinite;
+    }
+  }
+
+  &--cyberpunk {
+    margin-top: 30px;
+    text-align: center;
+    font-family: Jura;
+    font-size: 20px;
+    border: none;
+    height: 65px;
+    color: white;
+    padding: 10px 15px 18px;
+    border-width: 2px;
+    background-color: $secondary-green-70-opacity;
+    text-transform: uppercase;
+    clip-path: polygon(
+      0px 10px,
+      10px 0px,
+      100% 0px,
+      100% calc(100% - 10px),
+      calc(100% - 10px)
+      calc(100%),
+      calc(100% - 10px)
+      100%,
+      100% 100%,
+      80px calc(100% - 0px),
+      65px calc(100% - 10px),
+      0% calc(100% - 10Px));
+  
+    &:hover {
+      animation: glitch 750ms;
+      background-color: $secondary-green;
+  
+      &::before {
+        animation: scan 2s infinite;
+      }
+    }
+  }
+
+  &--outline {
+    border: 0;
+    height: 60px;
+    transform: skewX(-10deg);
+    border-style: solid;
+    border-width: 4px;
+    border-color: $primary-pink-50-opacity;
+    background-color: transparent;
+    color: white;
+    text-shadow: 2px 2px $primary-pink-50-opacity;
+    font-size: 20px;
+    font-family: Jura;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+  
+    &:hover {
+      background-color: $primary-pink-10-opacity;
+    }
+  
+    &:active {
+      background-color: $primary-pink-50-opacity;
+    }
+  }
+}
+

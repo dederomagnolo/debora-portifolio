@@ -1,0 +1,282 @@
+@import 'global-styles/colors.scss';
+@import 'global-styles/animations.scss';
+
+$profile-photo-url: url('../../assets/photo-default.png');
+
+.main-screen {
+  position: relative;
+  padding-top: 100px;
+  height: auto;
+  width: 100%;
+  z-index: 1;
+  background-color: #172834;
+  border-top: 5px solid $primary-pink;
+  border-bottom: 5px solid $primary-pink;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3vh;
+    transform: translate(-50%, -50%);
+    left:50%;
+    right: 50%;
+    width: 500px;
+    height: 5vh;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    background: $primary-pink;
+    border-top: 5px solid $primary-pink;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: calc(-2vh + -4px);
+    left: 50%;
+    right: 50%;
+    width: 488px;
+    height: calc(5vh + 3px);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    background-color: $background-blue;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center 80%;
+  }
+
+  .row {
+    color: white;
+    display: flex;
+    padding: 25px 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .first-section {
+    justify-content: space-between;
+  }
+
+  .about {
+    width: 50%;
+    padding: 30px;
+
+    .title-with-cursor {
+      display: flex;
+      .blinking-cursor {
+        animation: blink 1s infinite linear;
+      }
+    }
+  }
+
+  .carreer {
+    padding: 30px 20px;
+    height: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .timeline {
+      width: 100%;
+      height: 100%;
+      margin-top: 70px;
+      .main-line {
+        display: flex;
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+        background-image: linear-gradient(to right, #00D1FF , #00d0ff00);
+        height: 5px;
+        width: 85%;
+        position: absolute;
+        left: 0;
+        transform: translateY(50%);
+      }
+
+      .line-items {
+        display: flex;
+        width: 100%;
+      }
+
+      .line-item {
+        width: 100%;
+        position: relative;
+        display: flex;
+
+        .year-history {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+          margin-top: 40px;
+        }
+
+        .line-year {
+          font-size: 20px;
+          position: absolute;
+          top: -40px;
+          left: -16px
+        }
+
+        .vertical-line {
+          position: absolute;
+          left: 0;
+          background-image: linear-gradient(to bottom, #00d0ff47 , #00d0ff00);
+          width: 5px;
+
+          &--0 {
+            height: 280px;
+          }
+
+          &--1 {
+            height: 380px;
+          }
+
+          &--2 {
+            height: 200px;
+          }
+        }
+
+        .group {
+          flex-direction: column;
+          display: flex;
+          position: relative;
+          justify-content: center;
+
+          .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: $primary-pink;
+            border-radius: 50%;
+            z-index: 1;
+            margin-left: -6px;
+            position: absolute;
+            top: 0;
+            box-shadow: 0 0 2px 2px $primary-pink-50-opacity;
+          }
+
+          .timeline-role {
+            margin-left: 25px;
+          }
+        }
+      }
+
+      &::before {
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+        content: '';
+        background-image: linear-gradient(to right, #00D1FF , #00d0ff00);
+        height: 5px;
+        width: 90%;
+        position: absolute;
+        left: 0;
+        filter: blur(2px);
+      }
+    }
+  }
+
+  .stripes {
+    width: 370px;
+    overflow: hidden;
+    position: relative;
+    height: 492px;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.2) 2px,
+      rgba(0,0,0,0.2) 3px
+    );
+    animation-name: interference;
+    animation-duration: 100ms;
+    animation-iteration-count: infinite;
+    top: 0;
+  }
+
+  .moving-stripe {
+    width: 100%;
+    height: 30px;
+    animation-name: strip;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    z-index: -1;
+    box-shadow: inset 10px 10px 10px 15px $secondary-green-10-opacity;
+    background-image: $profile-photo-url;
+  }
+
+  .photo {
+    img {
+      filter: grayscale(80%);
+      top: 0;
+      position: absolute;
+      z-index: -2;
+    }
+  }
+
+  .arrow-icon {
+    position: absolute;
+    top: -36px;
+    transform: translate(-50%, -50%);
+    left:50%;
+    right: 50%;
+    z-index: 5;
+    animation: scrollDown 2s infinite;
+
+    &:hover {
+      top: -10px;
+      animation: unset;
+    }
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+  
+  30% {
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+}
+
+@keyframes strip {
+  0% {
+    top: 30px;
+    background-position: center top;
+  }
+  100% {
+    top: 492px;
+    background-position: center bottom;
+  }
+}
+
+$sizeToExpand: 8px;
+
+@keyframes scalePadding {
+  0% {
+    padding: 0;
+    margin: $sizeToExpand;
+  }
+
+  50% {
+    padding: $sizeToExpand;
+    margin: 0px;
+  }
+
+  100% {
+    padding: 0;
+    margin: $sizeToExpand;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+

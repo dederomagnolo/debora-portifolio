@@ -1,0 +1,149 @@
+@keyframes glitch {
+  0% {
+    transform: skewX(0);
+  }
+  5% {
+    transform: skewX(2deg);
+    opacity: .75;
+  }
+  10% {
+    transform: skewX(0);
+    opacity: 1;
+  }
+  15% {
+    transform: skewX(-5deg);
+    opacity: .75
+  }
+  20% {
+    transform: skewX(0);
+    opacity: 1;
+  }
+  45% {
+    transform: skewX(2deg);
+    opacity: .75;
+  }
+  50% {
+    transform: skewX(0);
+    opacity: 1;
+  }
+  55% {
+    transform: skewX(0);
+    opacity: .75;
+  }
+  60% {
+    transform: skewX(0);
+    opacity: 1;
+  }
+  75% {
+    transform: skewX(2deg);
+  }
+  80% {
+    transform: skewX(0);
+  }
+  90% {
+    transform: skewX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: skewX(0);
+  }
+}
+
+@keyframes interference {
+  from {
+    background-position-y: 1px;
+  }
+
+  to {
+    background-position-y: 0;
+  }
+}
+
+@keyframes fade-out-glitch {
+  0% {
+    opacity: .85;
+  }
+  10% {
+    opacity: 1;
+  }
+  15% {
+    opacity: .85
+  }
+  45% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.85;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fade-in-glitch {
+  0% {
+    opacity: 0.2;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  30%{
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.85;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  0% {
+    max-width: 630px;
+  }
+  100% {
+    max-width: 0;
+  }
+}
+
+@keyframes grow {
+  0% {
+    max-width: 0;
+  }
+  100% {
+    max-width: 630px;
+  }
+}
+
+@function is-list($value) {
+  @return if(length($value) > 1, true, false);
+}
+
+@mixin cascade($selectors, $amount:50, $reverse:false, $initial:0) {
+  $is-list: is-list($selectors);
+  $length: if($is-list, length($selectors), $selectors);
+  
+  @for $i from 1 through $length {
+    
+      $index: if($reverse, $length + 1 - $i, $i);
+      $delay: $i * $amount;
+      
+      @if $is-list {
+        #{nth($selectors, $index)} {
+          transition-delay: $delay + $initial + ms;
+        }
+      }
+      @else {
+        &:nth-of-type(#{$index}) {
+          transition-delay: $delay + $initial + ms;
+        } 
+      }
+  }
+}

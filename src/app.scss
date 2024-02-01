@@ -1,0 +1,109 @@
+@import 'global-styles/colors.scss';
+
+@mixin cornerProperties() {
+  content: "";
+  height: 20px;
+  width: 20px;
+  border: 2px solid $secondary-green;
+  position: absolute;
+  transition-property: height, width;
+  transition-duration: .3s;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.app-container {
+  height: auto;
+  width: 100%;
+}
+
+.body-content {
+  margin-top: 93vh;
+  height: auto;
+  width: 100%;
+  z-index: 5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  font-family: Jura;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+p {
+  font-size: 18px;
+}
+
+.frame-corners {
+  position: relative;
+  padding: 8px;
+  .corners-top {
+    &::before {
+      @include cornerProperties();
+      top: 0px;
+      right: 0px;
+      border-color: $secondary-green $secondary-green transparent transparent; 
+    }
+    &::after{
+      @include cornerProperties();
+      top: 0px;
+      left: 0px;
+      border-color: $secondary-green transparent transparent $secondary-green; 
+    }
+  }
+
+  .corners-bottom {
+    &::before {
+      @include cornerProperties();
+      border-color: transparent $secondary-green $secondary-green transparent; 
+      bottom: 0px;
+      right: 0px;
+    }
+    &::after {
+      @include cornerProperties();
+      border-color: transparent transparent $secondary-green $secondary-green; 
+      bottom: 0px;
+      left: 0px;
+    }
+  }
+}
+
+@-webkit-keyframes scan {
+  0% {
+      top: 0
+  }
+  50% {
+      top: 97%
+  }
+  100% {
+      top: 0
+  }
+}
+
+@keyframes scan {
+  0% {
+      top: 0
+  }
+  50% {
+      top: 97%
+  }
+  100% {
+      top: 0
+  }
+}
