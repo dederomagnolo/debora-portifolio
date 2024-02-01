@@ -15,7 +15,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`app-button app-button--${variant} ${enu}`}
+      className={`app-button app-button--${variant} ${className}`}
       onClick={onClick} >
       {children}
     </button>
