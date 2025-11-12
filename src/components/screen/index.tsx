@@ -44,7 +44,16 @@ const timelineYears = [
         position: 'Senior full stack developer'
       }
     ]
-  }
+  },
+  {
+    year: `2024 - Current`,
+    yearRoles: [
+      {
+        company: 'Eldorado Research Institute @ Apple Music',
+        position: 'Senior full stack developer'
+      }
+    ]
+  } 
 ]
 
 const renderTimelineItems = () => {
@@ -92,7 +101,7 @@ export const Screen = () => {
             I'm a Brazilian full stack developer bringing you programming and design from the future. 
           </p>
           <p>
-            I have extensive experience with modern and dynamic  web applications, using React JS, Node JS, GraphQL and Javascript related technologies and concepts, including the design and the experience.
+            I have extensive experience with modern and dynamic web applications, using React JS, Node JS, GraphQL and Javascript related technologies and concepts, including the design and the experience.
           </p>
           <p>
             My main focus is to turn the web more accessible to everyone with simplicity.

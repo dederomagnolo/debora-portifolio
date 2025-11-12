@@ -2,6 +2,9 @@ import { useEffect, useState, useRef } from 'react'
 import './styles.scss'
 import BeThere from '../../assets/bethere-image-promo.png'
 import MarcaAi from '../../assets/marcai-image-promo.png'
+import CoguPromo from '../../assets/cogu-promo.png'
+import XEnglishPromo from '../../assets/x-english-promo.png'
+import PelePromo from '../../assets/pele-promo.png'
 import { Button } from '../button'
 import { useOnScreen } from 'hooks/use-on-screen'
 
@@ -12,8 +15,8 @@ const slides = {
     {
       title: 'BeThere',
       details: {
-        description: 'BeThere is my personal iot system. The project started in 2018 as an Arduino prototype and evolved into a unique electronic system that is controlled by a React Progressive Web App.',
-        tech: 'C++, Node JS, React JS, Arduino'
+        description: 'BeThere is my personal iot system. The project started in 2018 as an Arduino prototype and evolved into a unique electronic system.',
+        tech: 'C++, MQTT, Node JS, React JS, ESP microcontrollers'
       },
       imgSource: BeThere
     },
@@ -29,28 +32,28 @@ const slides = {
   ],
   'UI Design': [
     {
-      title: 'Pedro Cunha',
-      details: {
-        description: 'lorem ipsums',
-        tech: ''
-      },
-      imgSource: ''
-    },
-    {
       title: 'Cogumelos São Carlos',
       details: {
-        description: 'lorem ipsums',
-        tech: ''
+        description: 'Cogumelos São Carlos is a company that sells organic shimeji. This is the website mockup created to share recipes and their information in the web. I also worked to put their idea online.',
+        tech: 'Vanilla JS, html, css'
       },
-      imgSource: ''
+      imgSource: CoguPromo
+    },
+    {
+      title: 'X English for Women',
+      details: {
+        description: 'Concept and UI design for X English for Women — an English school designed to empower women through language learning and professional growth.',
+        tech: 'Figma'
+      },
+      imgSource: XEnglishPromo
     },
     {
       title: 'Pelé Eterno',
       details: {
-        description: '',
-        tech: ''
+        description: 'Yes, I am a soccer fan. This is just a landing page concept for our King Pele.',
+        tech: 'Playing around with Figma'
       },
-      imgSource: ''
+      imgSource: PelePromo
     }
   ],
   'Corporative Work': [

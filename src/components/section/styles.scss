@@ -91,13 +91,13 @@
 
     &--fade-out {     
       img {
-        animation: fade-out-glitch 0.8s;
+        animation: fade-out-glitch 0.5s;
       }
     }
 
     &--fade-in {
       img {
-        animation: fade-in-glitch 1s;
+        animation: fade-in-glitch 0.8s;
       }
     }
   }
